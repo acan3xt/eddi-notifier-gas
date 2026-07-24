@@ -179,8 +179,8 @@ for (const source of sources) {
 
     messages.push({
       content:
-        `**【${source.name}】**\n` +
-        `**${title}**\n` +
+        `【${source.name}】\n` +
+        `${title}\n` +
         `${buildLinks(source, dat)}`
     });
     
