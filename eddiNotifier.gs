@@ -1,4 +1,4 @@
-// eddi-notifier v0.2.1
+// eddi-notifier v0.2.2
 
 
  // エッヂ
@@ -63,10 +63,17 @@ function checkThreads() {
 
   const props = PropertiesService.getScriptProperties();
 
-  let seen =
-    JSON.parse(props.getProperty("seen") || "[]");
+  let seen;
+
+  try {
+    seen = JSON.parse(props.getProperty("seen") || "[]");
+  } catch (e) {
+    Logger.log(`seenプロパティの読み込みに失敗しました: ${e}`);
+    seen = [];
+  }
 
   let seenSet = new Set(seen);
+
 
   const sources = [];
 
