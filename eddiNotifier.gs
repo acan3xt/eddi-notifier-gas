@@ -1,4 +1,4 @@
-// eddi-notifier v0.2.0
+// eddi-notifier v0.2.1
 
 
  // エッヂ
