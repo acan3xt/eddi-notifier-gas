@@ -143,8 +143,10 @@ for (const source of sources) {
     if (!line.includes(".dat<>")) continue;
 
     const dat = line.split(".dat<>")[0];
-    let title = line.split(".dat<>")[1].split(" (")[0];
-    
+    let title = line
+      .split(".dat<>")[1]
+      .replace(/\s\(\d+\)\s*$/, "");
+
     title = decodeHtml(title);
     
     // 除外キーワード
