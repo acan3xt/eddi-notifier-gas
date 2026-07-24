@@ -23,6 +23,11 @@ const ENABLE_5CH_LIVEGALILEO = false;  // なんG
  // "both"     → 元の掲示板＋Kyodemo
 const LINK_MODE = "both";
 
+// Discord通知に掲示板名の表示
+// true  → 表示する
+// false → 表示しない
+const SHOW_BOARD_NAME = true;
+
 
  // Discord Webhook URLを設定
 const DISCORD_WEBHOOK =
@@ -179,7 +184,7 @@ for (const source of sources) {
 
     messages.push({
       content:
-        `【${source.name}】\n` +
+        `${SHOW_BOARD_NAME ? `【${source.name}】\n` : ""}` +
         `${title}\n` +
         `${buildLinks(source, dat)}`
     });
