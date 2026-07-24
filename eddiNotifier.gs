@@ -130,15 +130,36 @@ function checkThreads() {
 const messages = [];
 
 for (const source of sources) {
+    let text;
 
-  const text =
-    UrlFetchApp.fetch(source.url)
-      .getContentText("Shift_JIS");
+    try {
+      const response = UrlFetchApp.fetch(
+        source.url,
+        { muteHttpExceptions: true }
+      );
+
+      const statusCode = response.getResponseCode();
+
+      if (statusCode !== 200) {
+        Logger.log(
+          `スレッド一覧の取得に失敗しました: ${source.name} (${source.url}) - HTTP ${statusCode}`
+        );
+        continue;
+      }
+
+      text = response.getContentText("Shift_JIS");
+
+    } catch (e) {
+      Logger.log(
+        `スレッド一覧の取得に失敗しました: ${source.name} (${source.url}) - ${e}`
+      );
+      continue;
+    }
+
 
   const lines = text.split("\n");
 
   for (const line of lines) {
-
 
     if (!line.includes(".dat<>")) continue;
 
