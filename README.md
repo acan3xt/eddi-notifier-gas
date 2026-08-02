@@ -63,7 +63,7 @@ Webhook URLは絶対に他人に公開しないでください
 
 - 新しいプロジェクトを作成
 - 初期生成される `myFunction()` などの関数はすべて削除
-- `Code.gs` にスクリプト eddiNotifier.gs (https://github.com/acan3xt/eddi-notifier/blob/main/eddiNotifier.gs) を貼り付け
+- `Code.gs` にスクリプト eddiNotifier.gs (https://github.com/acan3xt/eddi-notifier-gas/blob/main/eddiNotifier.gs) を貼り付け
 
 ---
 
